@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | STYLESHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="collections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+    <div class="bg-shape-3"></div>
+    
+    <!-- New 3D Shapes -->
+    <div class="shape-3d shape-1"></div>
+    <div class="shape-3d shape-2"></div>
+    <div class="shape-3d shape-3"></div>
+    
+     <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link">Men</a></li>
+                <li><a href="women.html" class="nav-link">Women</a></li>
+                <li><a href="collections.html" class="nav-link active">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- سيتم ملؤه بواسطة JavaScript -->
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="collections-header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="current">Collections</span>
+                </div>
+                
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="main-title">
+                            <span class="title-line">Our Exclusive</span>
+                            <span class="title-line highlight">Collections</span>
+                        </h1>
+                        <p class="subtitle">
+                            Discover curated fashion collections that tell a story. 
+                            Each piece is designed to elevate your style and express your personality.
+                        </p>
+                        
+                        <div class="collection-stats">
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="12">0</div>
+                                <div class="stat-label">Collections</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="500">0</div>
+                                <div class="stat-label">Unique Pieces</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-count="24">0</div>
+                                <div class="stat-label">Designers</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="floating-collection-card">
+                            <div class="collection-preview">
+                                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Spring Collection" class="preview-image">
+                                <div class="preview-overlay">
+                                    <div class="collection-tag">Spring 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="collections-grid-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>Featured</span>
+                    <span class="highlight">Collections</span>
+                </h2>
+                <p class="section-subtitle">
+                    Explore our handpicked collections that combine style, comfort, and innovation
+                </p>
+            </div>
+            
+            <div class="collections-grid" id="collectionsGrid">
+                <!-- Collections will be loaded dynamically -->
+            </div>
+            
+            <div class="view-all-container">
+                <button class="view-all-btn" id="viewAllBtn">
+                    <span>View All Collections</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="seasonal-collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>Seasonal</span>
+                    <span class="highlight">Highlights</span>
+                </h2>
+            </div>
+            
+            <div class="seasonal-grid">
+                <div class="seasonal-card spring-card">
+                    <div class="seasonal-content">
+                        <div class="season-badge">Spring</div>
+                        <h3>Spring Bloom</h3>
+                        <p>Fresh colors and lightweight fabrics for the new season</p>
+                        <a href="#" class="season-link">Explore Collection</a>
+                    </div>
+                    <div class="seasonal-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spring Collection">
+                    </div>
+                </div>
+                
+                <div class="seasonal-card summer-card">
+                    <div class="seasonal-content">
+                        <div class="season-badge">Summer</div>
+                        <h3>Summer Vibes</h3>
+                        <p>Bright and breezy styles for sunny days</p>
+                        <a href="#" class="season-link">Explore Collection</a>
+                    </div>
+                    <div class="seasonal-image">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Summer Collection">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="designers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>Featured</span>
+                    <span class="highlight">Designers</span>
+                </h2>
+                <p class="section-subtitle">
+                    Discover collections from our talented fashion designers
+                </p>
+            </div>
+            
+            <div class="designers-grid">
+                <div class="designer-card">
+                    <div class="designer-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Designer">
+                    </div>
+                    <h3>Alex Morgan</h3>
+                    <p class="designer-role">Head Designer</p>
+                    <div class="designer-stats">
+                        <span>15 Collections</span>
+                        <span>•</span>
+                        <span>4.9 Rating</span>
+                    </div>
+                </div>
+                
+                <div class="designer-card">
+                    <div class="designer-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Designer">
+                    </div>
+                    <h3>Sophia Chen</h3>
+                    <p class="designer-role">Fashion Director</p>
+                    <div class="designer-stats">
+                        <span>12 Collections</span>
+                        <span>•</span>
+                        <span>4.8 Rating</span>
+                    </div>
+                </div>
+                
+                <div class="designer-card">
+                    <div class="designer-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Designer">
+                    </div>
+                    <h3>Marcus Lee</h3>
+                    <p class="designer-role">Creative Director</p>
+                    <div class="designer-stats">
+                        <span>18 Collections</span>
+                        <span>•</span>
+                        <span>5.0 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="collection-modal" id="collectionModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- سيتم ملؤه بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+             <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="collections.html">New Arrivals</a>
+                    <a href="sale.html">Best Sellers</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+           <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+           <div class="hero-social">
+    <a href="https://github.com/alihamedaaboelnaga" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/Naga_Stack/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:alihamedaaboelnaga2019@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+<!-- CSS -->
+<style>
+.hero-social {
+    display: flex;
+    gap: 20px; /* المسافة بين الأيقونات */
+    justify-content: center; /* توسيط الأيقونات */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.hero-social a i {
+    font-size: 28px;
+    color: #0a1a3b; /* Dark Navy */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.hero-social a:hover i {
+    color: #1e90ff; /* لون عند المرور على الأيقونة */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+</style>
+
+<!-- رابط Font Awesome في head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="collections.js"></script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Collection | STYLESHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="women.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+    <div class="bg-shape-3"></div>
+    
+ <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link">Men</a></li>
+                <li><a href="women.html" class="nav-link active">Women</a></li>
+                <li><a href="collections.html" class="nav-link">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- سيتم ملؤه بواسطة JavaScript -->
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Women's Collection</span>
+            </div>
+            
+            <div class="header-hero">
+                <div class="header-text">
+                    <h1 class="page-title">
+                        <span class="title-line">Women's</span>
+                        <span class="title-line highlight">Elegance</span>
+                    </h1>
+                    <p class="page-subtitle">Discover sophisticated styles that blend comfort with contemporary fashion</p>
+                    
+                    <div class="header-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">180+</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">Avg Rating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50%</span>
+                            <span class="stat-label">Sustainable</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#products" class="cta-button">
+                        <span>Explore Collection</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="header-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Women's Fashion" class="main-image">
+                        <div class="image-overlay"></div>
+                        <div class="floating-badge">
+                            <i class="fas fa-sparkles"></i>
+                            Premium Collection
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="filter-section" id="products">
+        <div class="filter-container">
+            <div class="filter-categories">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="dresses">Dresses</button>
+                <button class="filter-btn" data-category="tops">Tops</button>
+                <button class="filter-btn" data-category="bottoms">Bottoms</button>
+                <button class="filter-btn" data-category="shoes">Shoes</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+            
+            <div class="sort-options">
+                <select class="sort-select">
+                    <option value="popular">Sort by: Popular</option>
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <main class="products-section">
+        <div class="products-container">
+            <div class="products-grid" id="productsGrid">
+                <div class="product-item" data-category="dresses" data-price="149.99" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elegant Evening Dress">
+                        <button class="quick-view-btn" data-product="1">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">NEW</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Elegant Evening Dress</h3>
+                        <p class="product-description">Stunning lace dress for special occasions</p>
+                        <div class="product-price">$149.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(89)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="1">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="shoes" data-price="199.99" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Leather Boots">
+                        <button class="quick-view-btn" data-product="2">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">PREMIUM</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Leather Boots</h3>
+                        <p class="product-description">Genuine Italian leather premium boots</p>
+                        <div class="product-price">$199.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-count">(124)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="2">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="tops" data-price="49.99" data-rating="4.6">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casual Summer Top">
+                        <button class="quick-view-btn" data-product="3">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">SALE</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Summer Top</h3>
+                        <p class="product-description">Lightweight organic cotton summer top</p>
+                        <div class="product-price">$49.99 <span class="old-price">$69.99</span></div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(156)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="3">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="accessories" data-price="299.99" data-rating="4.9">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Handbag">
+                        <button class="quick-view-btn" data-product="4">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">LUXURY</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Designer Handbag</h3>
+                        <p class="product-description">Luxury handbag with premium leather</p>
+                        <div class="product-price">$299.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-count">(78)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="4">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="bottoms" data-price="89.99" data-rating="4.7">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="High-Waisted Jeans">
+                        <button class="quick-view-btn" data-product="5">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">TRENDING</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">High-Waisted Jeans</h3>
+                        <p class="product-description">Premium denim with comfortable stretch</p>
+                        <div class="product-price">$89.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(203)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="5">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="dresses" data-price="129.99" data-rating="4.8">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1594736797933-d0c9e46c0d5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Activewear Set">
+                        <button class="quick-view-btn" data-product="6">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="product-badge">NEW</div>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Activewear Set</h3>
+                        <p class="product-description">Matching set with moisture-wicking fabric</p>
+                        <div class="product-price">$129.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(142)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product="6">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Load More Products
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- سيتم ملؤه بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+             <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="collections.html">New Arrivals</a>
+                    <a href="sale.html">Best Sellers</a>
+                </div>
+                    <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+           <div class="hero-social">
+    <a href="https://github.com/alihamedaaboelnaga" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/Naga_Stack/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:alihamedaaboelnaga2019@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+<!-- CSS -->
+<style>
+.hero-social {
+    display: flex;
+    gap: 20px; /* المسافة بين الأيقونات */
+    justify-content: center; /* توسيط الأيقونات */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.hero-social a i {
+    font-size: 28px;
+    color: #0a1a3b; /* Dark Navy */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.hero-social a:hover i {
+    color: #1e90ff; /* لون عند المرور على الأيقونة */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+</style>
+
+<!-- رابط Font Awesome في head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="women.js"></script>
+</body>
+</html>

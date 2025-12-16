@@ -1,0 +1,74 @@
+mutation CreateDemoData @transaction @auth(level: PUBLIC, insecureReason: "This mutation is safe to expose to the public for demonstration purposes") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      firstName: "demouser1",
+      lastName: "user",
+      email: "demouser1@example.com",
+      passwordHash: "securepassword",
+      role: "member",
+      createdAt: "2024-04-29T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      firstName: "demouser2",
+      lastName: "user",
+      email: "demouser2@example.com",
+      passwordHash: "securepassword",
+      role: "member",
+      createdAt: "2024-04-29T12:00:00Z"
+    }
+  ])
+  product_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      name: "Example Product 1",
+      description: "This is an example product.",
+      imageUrl: "http://example.com/image1.jpg",
+      price: 25.99,
+      stockQuantity: 100,
+      createdAt: "2024-04-29T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440003",
+      name: "Example Product 2",
+      description: "This is another example product.",
+      imageUrl: "http://example.com/image2.jpg",
+      price: 49.99,
+      stockQuantity: 50,
+      createdAt: "2024-04-29T12:00:00Z"
+    }
+  ])
+  order_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440004",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      orderDate: "2024-04-29T13:00:00Z",
+      status: "pending",
+      totalPrice: 25.99
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440005",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      orderDate: "2024-04-29T14:00:00Z",
+      status: "completed",
+      totalPrice: 75.50
+    }
+  ])
+  orderItem_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440006",
+      orderId: "550e8400-e29b-41d4-a716-446655440004",
+      productId: "550e8400-e29b-41d4-a716-446655440002",
+      quantity: 1,
+      unitPrice: 25.99
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440007",
+      orderId: "550e8400-e29b-41d4-a716-446655440005",
+      productId: "550e8400-e29b-41d4-a716-446655440003",
+      quantity: 1,
+      unitPrice: 49.99
+    }
+  ])
+}

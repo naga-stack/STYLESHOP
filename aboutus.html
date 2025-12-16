@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLESHOP - من نحن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .back-btn {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .back-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .back-btn i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-btn .btn-text {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px) translateY(-50%);
+            transition: all 0.4s;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-btn:hover .btn-text {
+            opacity: 1;
+            transform: translateX(0) translateY(-50%);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transform-style: preserve-3d;
+            animation: fadeIn 1s ease-out;
+            padding: 0 20px;
+            max-width: 1000px;
+        }
+        
+        .hero-title {
+            font-size: 5.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .cta-btn {
+            padding: 1.3rem 2.8rem;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 280px;
+            justify-content: center;
+        }
+        
+        .cta-btn span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+        
+        .cta-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-instagram {
+            background: linear-gradient(45deg, #E1306C, #F77737, #FCAF45);
+            box-shadow: 0 15px 35px rgba(225, 48, 108, 0.3);
+        }
+        
+        .btn-instagram::before {
+            background: linear-gradient(45deg, #F77737, #E1306C);
+        }
+        
+        .btn-portfolio {
+            background: linear-gradient(45deg, #333333, #666666, #999999);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-portfolio::before {
+            background: linear-gradient(45deg, #666666, #333333);
+        }
+        
+        .btn-portfolio:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* 3D Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            pointer-events: none;
+            transform-style: preserve-3d;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 30px;
+            opacity: 0.4;
+            filter: blur(25px);
+            animation: floatElement 25s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            right: 8%;
+            animation-delay: 0s;
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 70%;
+            right: 80%;
+            animation-delay: -7s;
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(45deg, #6366f1, #3b82f6);
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 85%;
+            right: 20%;
+            animation-delay: -12s;
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(45deg, #ec4899, #f43f5e);
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 30%;
+            right: 85%;
+            animation-delay: -5s;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #3b82f6, #6366f1);
+        }
+        
+        /* Cards Section */
+        .cards-section {
+            padding: 8rem 0;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 4.5rem;
+            margin-bottom: 6rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to left, #6366f1, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        .company-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+            perspective: 1000px;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 1100px) {
+            .company-cards {
+                grid-template-columns: 1fr;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+        }
+        
+        .company-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 40px;
+            padding: 4rem 3.5rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-25px) rotateY(8deg);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                0 0 180px rgba(99, 102, 241, 0.25);
+        }
+        
+        .card-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            transform: translateZ(50px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            border-radius: 40px;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+        
+        .instagram-card .card-icon {
+            background: linear-gradient(45deg, #E1306C, #F77737);
+        }
+        
+        .instagram-card .card-icon::before {
+            background: linear-gradient(45deg, #E1306C, #F77737);
+        }
+        
+        .portfolio-card .card-icon {
+            background: linear-gradient(45deg, #333333, #666666);
+        }
+        
+        .portfolio-card .card-icon::before {
+            background: linear-gradient(45deg, #333333, #666666);
+        }
+        
+        .card-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            transform: translateZ(40px);
+        }
+        
+        .card-description {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            transform: translateZ(30px);
+            font-weight: 300;
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 3rem;
+            text-align: right;
+            transform: translateZ(25px);
+        }
+        
+        .card-features li {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            padding-right: 2rem;
+            position: relative;
+        }
+        
+        .card-features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #6366f1;
+            font-weight: bold;
+        }
+        
+        .instagram-card .card-features li::before {
+            color: #E1306C;
+        }
+        
+        .card-link {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s;
+            transform: translateZ(35px);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .instagram-card .card-link {
+            background: rgba(225, 48, 108, 0.2);
+            color: #ff6b9d;
+            border: 2px solid rgba(225, 48, 108, 0.4);
+        }
+        
+        .instagram-card .card-link:hover {
+            background: rgba(225, 48, 108, 0.3);
+            border-color: rgba(225, 48, 108, 0.7);
+            transform: translateY(-5px) translateZ(35px);
+            box-shadow: 0 15px 30px rgba(225, 48, 108, 0.2);
+        }
+        
+        .portfolio-card .card-link {
+            background: rgba(102, 102, 102, 0.2);
+            color: #cccccc;
+            border: 2px solid rgba(102, 102, 102, 0.4);
+        }
+        
+        .portfolio-card .card-link:hover {
+            background: rgba(102, 102, 102, 0.3);
+            border-color: rgba(102, 102, 102, 0.7);
+            transform: translateY(-5px) translateZ(35px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Founder Section */
+        .founder-section {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .founder-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .founder-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .founder-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.5;
+        }
+        
+        .founder-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .founder-info p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .founder-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .founder-social a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .founder-social a:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent);
+            z-index: 1;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .copyright {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-social a {
+            color: #cbd5e1;
+            font-size: 2rem;
+            transition: all 0.4s;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-social a:hover {
+            color: #6366f1;
+            transform: translateY(-10px) scale(1.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        @keyframes floatElement {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(50px, -70px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate(-40px, 40px) rotate(240deg) scale(0.9);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) translateZ(30px);
+            }
+            50% {
+                transform: scale(1.08) translateZ(30px);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Cursor Effect */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, width 0.3s, height 0.3s;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.2);
+            border-color: #8b5cf6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .company-cards {
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
+            .company-card {
+                padding: 3.5rem 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .company-cards {
+                padding: 0 15px;
+            }
+            
+            .company-card {
+                padding: 3rem 2.5rem;
+                min-height: auto;
+            }
+            
+            .card-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                min-width: 250px;
+            }
+            
+            .back-button {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .back-btn {
+                width: 55px;
+                height: 55px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .company-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .company-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-description {
+                font-size: 1.1rem;
+            }
+            
+            .footer-social a {
+                width: 65px;
+                height: 65px;
+                font-size: 1.8rem;
+            }
+            
+            .footer-logo {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-btn {
+                padding: 1rem 1.8rem;
+                font-size: 1.1rem;
+                min-width: 220px;
+            }
+            
+            .company-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch:hover::before,
+        .glitch:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        
+        .btn-instagram.glitch:hover::before {
+            animation: glitch-1 0.3s infinite;
+            background: linear-gradient(45deg, #E1306C, #F77737);
+        }
+        
+        .btn-instagram.glitch:hover::after {
+            animation: glitch-2 0.3s infinite;
+            background: linear-gradient(45deg, #F77737, #E1306C);
+        }
+        
+        @keyframes glitch-1 {
+            0% { transform: translate(0); opacity: 0.3; }
+            33% { transform: translate(-2px, 2px); opacity: 0.3; }
+            66% { transform: translate(2px, -2px); opacity: 0.3; }
+            100% { transform: translate(0); opacity: 0.3; }
+        }
+        
+        @keyframes glitch-2 {
+            0% { transform: translate(0); opacity: 0.3; }
+            33% { transform: translate(2px, -2px); opacity: 0.3; }
+            66% { transform: translate(-2px, 2px); opacity: 0.3; }
+            100% { transform: translate(0); opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    
+    <!-- Back Button -->
+    <div class="back-button">
+        <button class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-right"></i>
+            <span class="btn-text">رجوع للصفحة السابقة</span>
+        </button>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">وراء STYLESHOP</h1>
+            
+            <p class="hero-subtitle" id="typingText">
+                STYLESHOP ليس مجرد متجر إلكتروني، بل هو رؤية تحولت إلى واقع. 
+                اكتشف القصة الكاملة والتفاصيل خلف المشروع من خلال الروابط الرسمية...
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://www.instagram.com/Naga_Stack/" 
+                   class="cta-btn btn-instagram glitch" 
+                   target="_blank"
+                   data-text="تابع الشركة">
+                    <i class="fab fa-instagram"></i>
+                    <span>صفحة الشركة على إنستجرام</span>
+                </a>
+                
+                <a href="https://github.com/naga-stack/NAGA_STACK/deployments/github-pages" 
+                   class="cta-btn btn-portfolio" 
+                   target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>البرتفوليو والتفاصيل التقنية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="container">
+            <h2 class="section-title">اكتشف أكثر عنا</h2>
+            
+            <div class="company-cards">
+                <!-- Instagram Card -->
+                <div class="company-card instagram-card">
+                    <div>
+                        <div class="card-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 class="card-title">الوجه الإجتماعي لـ STYLESHOP</h3>
+                        <p class="card-description">
+                            هنا حيث تلتقي الموضة بالتكنولوجيا. صفحتنا على إنستجرام هي واجهتنا الحقيقية
+                            التي تعكس روح العلامة التجارية وتفاعلنا المباشر مع مجتمعنا.
+                        </p>
+                        
+                        <ul class="card-features">
+                            <li>قصص خلف الكواليس والتطوير</li>
+                            <li>عروض حصرية للمتابعين</li>
+                            <li>تفاعل مباشر مع فريق العمل</li>
+                            <li>أحدث صيحات الموضة والأزياء</li>
+                            <li>إعلانات عن منتجات جديدة</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://www.instagram.com/Naga_Stack/" class="card-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        تابع @Naga_Stack على إنستجرام
+                    </a>
+                </div>
+                
+                <!-- Portfolio Card -->
+                <div class="company-card portfolio-card">
+                    <div>
+                        <div class="card-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3 class="card-title">الجانب التقني والتطوير</h3>
+                        <p class="card-description">
+                            هنا تكمن التفاصيل التقنية والخلفية البرمجية. اكتشف كيف بنينا STYLESHOP
+                            من الصفر باستخدام أحدث التقنيات وأفضل ممارسات التطوير.
+                        </p>
+                        
+                        <ul class="card-features">
+                            <li>شفرة المصدر والهندسة المعمارية</li>
+                            <li>تفاصيل النشر والتوزيع</li>
+                            <li>التقنيات المستخدمة في المشروع</li>
+                            <li>سير العمل والتطوير المستمر</li>
+                            <li>الإحصائيات والأداء التقني</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://naga-stack.github.io/NAGA_STACK/#" class="card-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        استعرض البرتفوليو التقني
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-content">
+                <h2 class="founder-title">المؤسس والمطور</h2>
+                
+                <div class="founder-grid">
+                    <div class="founder-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    
+                    <div class="founder-info">
+    <h3>علي حامد أبو النجا</h3>
+    <p>
+        مطوّر ويب ومؤسس STYLESHOP، مهتم ببناء تجارب رقمية حديثة تجمع بين
+        الأداء العالي والتصميم العصري. أعمل على تطوير واجهات استخدام
+        احترافية باستخدام أحدث تقنيات الويب، مع تركيز قوي على التفاصيل
+        وتجربة المستخدم.
+    </p>
+
+    <div class="founder-social">
+        <a href="https://github.com/alihamedaaboelnaga" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/aliihammedd/" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:alihamedaaboelnaga2019@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/201017224990" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">STYLESHOP</div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/alihamedaaboelnaga" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/Naga_Stack/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:alihamedaaboelnaga2019@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/201017224990" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2024 STYLESHOP. جميع الحقوق محفوظة.<br>
+                تم التصميم والبرمجة بـ <i class="fas fa-heart" style="color: #ec4899;"></i> بواسطة Naga Stack
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Back Button Functionality
+        const backBtn = document.getElementById('backBtn');
+        
+        backBtn.addEventListener('click', () => {
+            if (document.referrer && document.referrer.includes(window.location.host)) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Hover effect for cursor
+        document.querySelectorAll('a, button, .company-card').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
+        });
+        
+        // 3D Tilt effect for cards
+        document.querySelectorAll('.company-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 8;
+                const rotateX = ((centerY - y) / centerY) * 8;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-25px) scale(1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+        
+        // Typewriter effect
+        const typingText = document.getElementById('typingText');
+        const originalText = typingText.textContent;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeEffect() {
+            const currentText = originalText.substring(0, charIndex);
+            typingText.textContent = currentText;
+            
+            if (!isDeleting && charIndex < originalText.length) {
+                charIndex++;
+                setTimeout(typeEffect, 50);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeEffect, 30);
+            } else {
+                isDeleting = !isDeleting;
+                setTimeout(typeEffect, 2000);
+            }
+        }
+        
+        // Start typing effect
+        window.addEventListener('load', () => {
+            typingText.textContent = '';
+            setTimeout(typeEffect, 1000);
+        });
+        
+        // Add particles effect
+        function createParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.right = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '1';
+            document.body.appendChild(particlesContainer);
+            
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 3 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = `rgba(${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 255, ${Math.random() * 0.5 + 0.2})`;
+                particle.style.borderRadius = '50%';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.right = Math.random() * 100 + 'vw';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Animate particle
+                animateParticle(particle);
+            }
+        }
+        
+        function animateParticle(particle) {
+            let x = parseFloat(particle.style.right);
+            let y = parseFloat(particle.style.top);
+            
+            function move() {
+                x += Math.random() * 0.5 - 0.25;
+                y += Math.random() * 0.5 - 0.25;
+                
+                if (x < 0) x = 0;
+                if (x > 100) x = 100;
+                if (y < 0) y = 0;
+                if (y > 100) y = 100;
+                
+                particle.style.right = x + 'vw';
+                particle.style.top = y + 'vh';
+                
+                requestAnimationFrame(move);
+            }
+            
+            move();
+        }
+        
+        // Initialize particles
+        window.addEventListener('load', createParticles);
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `slideIn 0.8s ease forwards`;
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards and sections
+        document.querySelectorAll('.company-card, .founder-grid').forEach(element => {
+            element.style.opacity = '0';
+            observer.observe(element);
+        });
+        
+        // Glitch effect on hover
+        document.querySelectorAll('.glitch').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.animation = 'glitch-1 0.3s infinite';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                element.style.animation = '';
+            });
+        });
+    </script>
+</body>
+</html>

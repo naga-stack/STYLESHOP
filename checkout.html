@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | STYLESHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link">Men</a></li>
+                <li><a href="women.html" class="nav-link">Women</a></li>
+                <li><a href="collections.html" class="nav-link">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <header class="checkout-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="cart.html">Cart</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Checkout</span>
+            </div>
+            <h1 class="checkout-title">Secure Checkout</h1>
+            <p class="checkout-subtitle">Complete your purchase in a few simple steps</p>
+        </div>
+    </header>
+
+    <!-- Checkout Steps -->
+    <div class="checkout-steps">
+        <div class="container">
+            <div class="steps-container">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <span class="step-title">Cart Review</span>
+                        <span class="step-subtitle">Items in your cart</span>
+                    </div>
+                </div>
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <span class="step-title">Information</span>
+                        <span class="step-subtitle">Shipping & Billing</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <span class="step-title">Payment</span>
+                        <span class="step-subtitle">Secure payment</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <span class="step-title">Confirmation</span>
+                        <span class="step-subtitle">Order complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Content -->
+    <main class="checkout-content">
+        <div class="container">
+            <div class="checkout-layout">
+                <!-- Left Column: Forms -->
+                <div class="checkout-forms-section">
+                    <!-- Shipping Address Form -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-truck"></i> Shipping Address</h2>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" class="form-input" placeholder="123 Main St" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <select id="state" class="form-input" required>
+                                    <option value="">Select State</option>
+                                    <option value="CA">California</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="FL">Florida</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="zipCode">ZIP Code *</label>
+                                <input type="text" id="zipCode" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" class="form-input" required>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Method -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-shipping-fast"></i> Shipping Method</h2>
+                        </div>
+                        
+                        <div class="shipping-options">
+                            <div class="shipping-option selected">
+                                <div class="option-header">
+                                    <input type="radio" name="shipping" id="standard" checked>
+                                    <label for="standard">
+                                        <span class="option-title">Standard Shipping</span>
+                                        <span class="option-price">$9.99</span>
+                                    </label>
+                                </div>
+                                <p class="option-desc">Delivery in 5-7 business days</p>
+                            </div>
+                            
+                            <div class="shipping-option">
+                                <div class="option-header">
+                                    <input type="radio" name="shipping" id="express">
+                                    <label for="express">
+                                        <span class="option-title">Express Shipping</span>
+                                        <span class="option-price">$19.99</span>
+                                    </label>
+                                </div>
+                                <p class="option-desc">Delivery in 2-3 business days</p>
+                            </div>
+                            
+                            <div class="shipping-option">
+                                <div class="option-header">
+                                    <input type="radio" name="shipping" id="overnight">
+                                    <label for="overnight">
+                                        <span class="option-title">Overnight Shipping</span>
+                                        <span class="option-price">$29.99</span>
+                                    </label>
+                                </div>
+                                <p class="option-desc">Delivery next business day</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                        </div>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-tabs">
+                                <button class="payment-tab active" data-tab="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    Credit/Debit Card
+                                </button>
+                                <button class="payment-tab" data-tab="paypal">
+                                    <i class="fab fa-paypal"></i>
+                                    PayPal
+                                </button>
+                            </div>
+                            
+                            <div class="payment-content active" id="cardTab">
+                                <div class="form-grid">
+                                    <div class="form-group full-width">
+                                        <label for="cardNumber">Card Number *</label>
+                                        <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date *</label>
+                                        <input type="text" id="expiry" class="form-input" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" class="form-input" placeholder="123" maxlength="4">
+                                    </div>
+                                    
+                                    <div class="form-group full-width">
+                                        <label for="cardName">Name on Card *</label>
+                                        <input type="text" id="cardName" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-content" id="paypalTab">
+                                <div class="paypal-info">
+                                    <i class="fab fa-paypal"></i>
+                                    <p>You will be redirected to PayPal to complete your payment securely.</p>
+                                    <button class="btn-paypal">
+                                        <i class="fab fa-paypal"></i>
+                                        Pay with PayPal
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="checkout-summary-section">
+                    <div class="summary-card">
+                        <h2>Order Summary</h2>
+                        
+                        <!-- Order Items Preview -->
+                        <div class="order-items-preview" id="orderItemsPreview">
+                            <!-- Items will be loaded here -->
+                        </div>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span class="subtotal-amount">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span class="shipping-amount">$9.99</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span class="tax-amount">$0.00</span>
+                            </div>
+                            <div class="summary-row discount-row" style="display: none;">
+                                <span>Discount</span>
+                                <span class="discount-amount">-$0.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Security & Policies -->
+                        <div class="security-info">
+                            <div class="security-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure SSL Encryption</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% Secure Payment</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-undo"></i>
+                                <span>30-Day Return Policy</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms Agreement -->
+                        <div class="terms-agreement">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms">
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <!-- Place Order Button -->
+                        <button class="place-order-btn" id="placeOrderBtn">
+                            <i class="fas fa-lock"></i>
+                            Place Order
+                        </button>
+                        
+                        <!-- Back to Cart -->
+                        <div class="back-to-cart">
+                            <a href="cart.html">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">Best Sellers</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Order Placed Successfully!</h3>
+            <p class="modal-message">Thank you for your purchase. Your order has been confirmed.</p>
+            <div class="order-details">
+                <div class="detail-row">
+                    <span>Order Number:</span>
+                    <span class="order-number">#STYLE2024-001</span>
+                </div>
+                <div class="detail-row">
+                    <span>Estimated Delivery:</span>
+                    <span class="delivery-date">5-7 business days</span>
+                </div>
+                <div class="detail-row">
+                    <span>Total Amount:</span>
+                    <span class="order-total">$0.00</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="continueShoppingBtn">
+                    Continue Shopping
+                </button>
+                <button class="btn-secondary" id="viewOrderBtn">
+                    View Order Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="checkout.js" type="module"></script>
+</body>
+</html>

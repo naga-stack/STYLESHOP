@@ -1,0 +1,38 @@
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: {
+    id_expr: "uuidV4()",
+    email: "newuser@example.com",
+    passwordHash: "hashed_password",
+    role: "member",
+    createdAt_expr: "request.time"
+  })
+}
+
+query ListProducts @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  products {
+    id
+    name
+    description
+    price
+    imageUrl
+  }
+}
+
+mutation UpdateProductStock($productId: UUID!, $newStockQuantity: Int!) @auth(level: USER) {
+  product_update(
+    id: $productId,
+    data: {
+      stockQuantity: $newStockQuantity
+    }
+  )
+}
+
+query ListOrdersForUser @auth(level: USER) {
+  orders(where: { userId: { eq_expr: "auth.uid" } }) {
+    id
+    orderDate
+    shippingAddress
+    status
+    totalPrice
+  }
+}
