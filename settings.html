@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLESHOP | Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Settings Page Specific Styles */
+        .settings-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 100px 5% 50px;
+            position: relative;
+        }
+
+        .settings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .settings-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .settings-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #8b5cf6, #10b981);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .settings-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        @media (max-width: 992px) {
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Styles */
+        .settings-sidebar {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2.5rem 1.5rem;
+            border-right: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .settings-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .settings-nav-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .settings-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: #64748b;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .settings-nav-link:hover {
+            background: white;
+            color: #8b5cf6;
+            border-color: rgba(139, 92, 246, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.1);
+        }
+
+        .settings-nav-link.active {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+            border-color: #8b5cf6;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .settings-nav-link i {
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        /* Content Area Styles */
+        .settings-content {
+            padding: 2.5rem;
+        }
+
+        .settings-section {
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .settings-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: #8b5cf6;
+        }
+
+        /* Settings Cards */
+        .settings-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .settings-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-title i {
+            color: #8b5cf6;
+        }
+
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Toggle Switches */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-container:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .toggle-label i {
+            color: #8b5cf6;
+            font-size: 1.2rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #cbd5e1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background: #8b5cf6;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+
+        /* Buttons */
+        .settings-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .settings-btn-primary {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .settings-btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .settings-btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .settings-btn-secondary:hover:not(:disabled) {
+            background: #e2e8f0;
+        }
+
+        .settings-btn-danger {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .settings-btn-danger:hover:not(:disabled) {
+            background: #fecaca;
+        }
+
+        .settings-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Danger Zone */
+        .danger-zone {
+            background: #fef2f2;
+            border: 2px solid #fee2e2;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .danger-title {
+            color: #dc2626;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .danger-title i {
+            font-size: 1.5rem;
+        }
+
+        .danger-description {
+            color: #7f1d1d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .language-option:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .language-option.active {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .language-flag {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .language-info h4 {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .language-info p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Theme Colors */
+        .theme-colors {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .theme-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .theme-color:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-color.active {
+            border-color: #1e293b;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Profile Header */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #10b981);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #d1fae5;
+            color: #065f46;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .settings-page {
+                padding: 80px 1rem 2rem;
+            }
+
+            .settings-title {
+                font-size: 2.2rem;
+            }
+
+            .settings-content {
+                padding: 1.5rem;
+            }
+
+            .settings-card {
+                padding: 1.5rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .language-option {
+                min-width: 100%;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .toggle-switch {
+                align-self: flex-end;
+            }
+        }
+
+        /* Loading Spinner */
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Toast Notifications */
+        .settings-toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease, slideOutRight 0.3s ease 2.7s forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .settings-toast.success {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+
+        .settings-toast.error {
+            background: linear-gradient(45deg, #ef4444, #dc2626);
+        }
+
+        .settings-toast.info {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Shapes -->
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+    <div class="bg-shape-3"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link">Men</a></li>
+                <li><a href="women.html" class="nav-link">Women</a></li>
+                <li><a href="collections.html" class="nav-link">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+                <li><a href="settings.html" class="nav-link active">Settings</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div id="userMenu">
+                    <!-- سيتم تعبئته بواسطة JavaScript -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Settings Page -->
+    <main class="settings-page">
+        <div class="settings-container">
+            <div class="settings-header">
+                <h1 class="settings-title">Settings</h1>
+                <p class="settings-subtitle">
+                    Customize your STYLESHOP experience and manage your preferences
+                </p>
+            </div>
+            
+            <div class="settings-grid">
+                <!-- Sidebar -->
+                <aside class="settings-sidebar">
+                    <ul class="settings-nav" id="settingsNav">
+                        <li class="settings-nav-item">
+                            <a href="#appearance" class="settings-nav-link active" data-section="appearance">
+                                <i class="fas fa-palette"></i>
+                                <span>Appearance</span>
+                            </a>
+                        </li>
+                        <li class="settings-nav-item">
+                            <a href="#notifications" class="settings-nav-link" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                        <li class="settings-nav-item">
+                            <a href="#language" class="settings-nav-link" data-section="language">
+                                <i class="fas fa-language"></i>
+                                <span>Language</span>
+                            </a>
+                        </li>
+                        <li class="settings-nav-item">
+                            <a href="#privacy" class="settings-nav-link" data-section="privacy">
+                                <i class="fas fa-lock"></i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li class="settings-nav-item">
+                            <a href="#account" class="settings-nav-link" data-section="account">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Account</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+                
+                <!-- Main Content -->
+                <div class="settings-content">
+                    <!-- Appearance Section -->
+                    <section id="appearance-section" class="settings-section active">
+                        <h2 class="section-title">
+                            <i class="fas fa-palette"></i>
+                            Appearance Settings
+                        </h2>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-moon"></i>
+                                Dark Mode
+                            </h3>
+                            <p class="card-description">
+                                Switch between light and dark themes for better viewing experience
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-adjust"></i>
+                                    <span>Enable Dark Mode</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-fill-drip"></i>
+                                Theme Color
+                            </h3>
+                            <p class="card-description">
+                                Choose your preferred accent color
+                            </p>
+                            
+                            <div class="theme-colors">
+                                <div class="theme-color active" style="background: linear-gradient(45deg, #8b5cf6, #7c3aed);" data-theme="purple"></div>
+                                <div class="theme-color" style="background: linear-gradient(45deg, #10b981, #059669);" data-theme="green"></div>
+                                <div class="theme-color" style="background: linear-gradient(45deg, #3b82f6, #2563eb);" data-theme="blue"></div>
+                                <div class="theme-color" style="background: linear-gradient(45deg, #f59e0b, #d97706);" data-theme="orange"></div>
+                                <div class="theme-color" style="background: linear-gradient(45deg, #ef4444, #dc2626);" data-theme="red"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-eye"></i>
+                                Display Settings
+                            </h3>
+                            <p class="card-description">
+                                Adjust how content is displayed
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-image"></i>
+                                    <span>Show Product Images</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="showImagesToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-font"></i>
+                                    <span>Reduce Animations</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="reduceAnimationsToggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Notifications Section -->
+                    <section id="notifications-section" class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-bell"></i>
+                            Notification Settings
+                        </h2>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-shopping-bag"></i>
+                                Order Notifications
+                            </h3>
+                            <p class="card-description">
+                                Get notified about your orders and shipments
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-box"></i>
+                                    <span>Order Status Updates</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="orderStatusToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <span>Shipping Updates</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="shippingToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-bullhorn"></i>
+                                Promotional Notifications
+                            </h3>
+                            <p class="card-description">
+                                Receive updates about sales and new arrivals
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-tags"></i>
+                                    <span>Sales & Discounts</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="salesToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-star"></i>
+                                    <span>New Arrivals</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="newArrivalsToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-envelope"></i>
+                                Email Notifications
+                            </h3>
+                            <p class="card-description">
+                                Control email communication preferences
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-newspaper"></i>
+                                    <span>Newsletter</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="newsletterToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Special Offers</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="offersToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Language Section -->
+                    <section id="language-section" class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-language"></i>
+                            Language & Region
+                        </h2>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-globe"></i>
+                                Interface Language
+                            </h3>
+                            <p class="card-description">
+                                Choose your preferred language for the website interface
+                            </p>
+                            
+                            <div class="language-selector">
+                                <div class="language-option active" data-lang="en">
+                                    <div class="language-flag">
+                                        <i class="fas fa-flag-usa"></i>
+                                    </div>
+                                    <div class="language-info">
+                                        <h4>English</h4>
+                                        <p>English (United States)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="language-option" data-lang="ar">
+                                    <div class="language-flag">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="language-info">
+                                        <h4>العربية</h4>
+                                        <p>Arabic</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="language-option" data-lang="es">
+                                    <div class="language-flag">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="language-info">
+                                        <h4>Español</h4>
+                                        <p>Spanish</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Region Settings
+                            </h3>
+                            <p class="card-description">
+                                Set your preferred currency and measurement units
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Currency: USD ($)</span>
+                                </div>
+                                <button class="settings-btn settings-btn-secondary" id="changeCurrencyBtn">
+                                    Change
+                                </button>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-ruler"></i>
+                                    <span>Units: Metric (cm, kg)</span>
+                                </div>
+                                <button class="settings-btn settings-btn-secondary" id="changeUnitsBtn">
+                                    Change
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Privacy Section -->
+                    <section id="privacy-section" class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-lock"></i>
+                            Privacy & Security
+                        </h2>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-user-secret"></i>
+                                Privacy Settings
+                            </h3>
+                            <p class="card-description">
+                                Control your privacy preferences
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-search"></i>
+                                    <span>Appear in Search Results</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="searchableToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Data Analytics</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="analyticsToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-cookie"></i>
+                                Cookie Preferences
+                            </h3>
+                            <p class="card-description">
+                                Manage your cookie settings
+                            </p>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    <span>Essential Cookies</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="essentialCookiesToggle" checked disabled>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-ad"></i>
+                                    <span>Advertising Cookies</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="adCookiesToggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-container">
+                                <div class="toggle-label">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Analytics Cookies</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="analyticsCookiesToggle" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Account Section -->
+                    <section id="account-section" class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-user-cog"></i>
+                            Account Management
+                        </h2>
+                        
+                        <div id="accountProfile" class="settings-card">
+                            <!-- سيتم تعبئته بواسطة JavaScript -->
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3 class="card-title">
+                                <i class="fas fa-download"></i>
+                                Data Management
+                            </h3>
+                            <p class="card-description">
+                                Export or delete your personal data
+                            </p>
+                            
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <button class="settings-btn settings-btn-secondary" id="exportDataBtn">
+                                    <i class="fas fa-file-export"></i> Export Data
+                                </button>
+                                <button class="settings-btn settings-btn-danger" id="deleteDataBtn">
+                                    <i class="fas fa-trash"></i> Delete Data
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="danger-zone">
+                            <h3 class="danger-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Danger Zone
+                            </h3>
+                            <p class="danger-description">
+                                These actions are permanent and cannot be undone. Please proceed with caution.
+                            </p>
+                            
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <button class="settings-btn settings-btn-danger" id="deactivateAccountBtn">
+                                    <i class="fas fa-user-slash"></i> Deactivate Account
+                                </button>
+                                <button class="settings-btn settings-btn-danger" id="deleteAccountBtn">
+                                    <i class="fas fa-trash-alt"></i> Delete Account
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="collections.html">New Arrivals</a>
+                    <a href="sale.html">Best Sellers</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+            <div class="hero-social">
+                <a href="https://github.com/alihamedaaboelnaga" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/Naga_Stack/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:alihamedaaboelnaga2019@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+     <script src="script.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

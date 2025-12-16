@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLESHOP | My Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+    <div class="bg-shape-3"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link">Men</a></li>
+                <li><a href="women.html" class="nav-link">Women</a></li>
+                <li><a href="collections.html" class="nav-link">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- سيتم إضافة زر المستخدم ديناميكيًا -->
+                <div id="userAuthSection"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1 class="section-title">My Profile</h1>
+                <p class="profile-subtitle">Manage your account information and preferences</p>
+            </div>
+            
+            <div class="profile-content">
+                <!-- الجزء الأيسر: معلومات الحساب -->
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <!-- سيتم تعبئة الأحرف الأولى للمستخدم -->
+                        </div>
+                        <h2 class="profile-name" id="profileName">Loading...</h2>
+                        <p class="profile-email" id="profileEmail">Loading...</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Orders</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Wishlist</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <a href="#" class="profile-action-btn" id="editProfileBtn">
+                            <i class="fas fa-user-edit"></i> Edit Profile
+                        </a>
+                        <a href="#" class="profile-action-btn" id="changePasswordBtn">
+                            <i class="fas fa-key"></i> Change Password
+                        </a>
+                        <button class="profile-action-btn logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- الجزء الأيمن: معلومات مفصلة -->
+                <div class="profile-details">
+                    <div class="details-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-user-circle"></i> Personal Information</h3>
+                            <button class="edit-btn" id="editPersonalInfo">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Full Name</span>
+                                <span class="info-value" id="userFullName">Loading...</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span class="info-value" id="userEmail">Loading...</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value" id="userPhone">Not set</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Member Since</span>
+                                <span class="info-value" id="memberSince">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="details-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+                            <button class="edit-btn" id="editAddressBtn">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                        </div>
+                        <div class="address-info" id="shippingAddress">
+                            <p>No shipping address saved yet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="details-section">
+                        <div class="section-header">
+                            <h3><i class="fas fa-shopping-bag"></i> Recent Orders</h3>
+                            <a href="orders.html" class="view-all-btn">View All</a>
+                        </div>
+                        <div class="orders-list" id="recentOrders">
+                            <div class="empty-orders">
+                                <i class="fas fa-shopping-bag"></i>
+                                <p>No orders yet</p>
+                                <a href="collections.html" class="btn-primary">Start Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="collections.html">New Arrivals</a>
+                    <a href="sale.html">Best Sellers</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="aboutus.html">About Us</a> 
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+            <div class="hero-social">
+                <a href="https://github.com/alihamedaaboelnaga" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/Naga_Stack/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:alihamedaaboelnaga2019@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal للتعديل -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Edit Profile</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="editName">Full Name</label>
+                        <input type="text" id="editName" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Phone Number</label>
+                        <input type="tel" id="editPhone" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="editAddress">Shipping Address</label>
+                        <textarea id="editAddress" class="form-input" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                        <button type="button" class="btn-secondary" id="cancelEdit">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

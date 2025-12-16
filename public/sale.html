@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale & Offers | STYLESHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+</head>
+<body>
+    <!-- 3D Background Elements -->
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+    <div class="bg-shape-3"></div>
+    
+   <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="logo-text">STYLESHOP</h1>
+                <div class="logo-highlight"></div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu"> 
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="men.html" class="nav-link active">Men</a></li>
+                <li><a href="women.html" class="nav-link">Women</a></li>
+                <li><a href="collections.html" class="nav-link">Collections</a></li>
+                <li><a href="sale.html" class="nav-link">Sale</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <!-- Sale Header with Countdown -->
+    <header class="sale-header">
+        <div class="sale-header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Sale & Offers</span>
+            </div>
+            
+            <h1 class="sale-title">
+                <span class="sale-title-line">MEGA</span>
+                <span class="sale-title-line highlight">SALE</span>
+                <span class="sale-title-line">UP TO 70% OFF</span>
+            </h1>
+            
+            <p class="sale-subtitle">Limited time offers on premium fashion items. Don't miss out!</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <div class="countdown-title">
+                    <i class="fas fa-clock"></i>
+                    <span>Sale Ends In:</span>
+                </div>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">05</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">12</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">45</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">30</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sale Stats -->
+            <div class="sale-stats">
+                <div class="sale-stat">
+                    <span class="stat-icon"><i class="fas fa-tag"></i></span>
+                    <div>
+                        <span class="stat-number">350+</span>
+                        <span class="stat-label">Items on Sale</span>
+                    </div>
+                </div>
+                <div class="sale-stat">
+                    <span class="stat-icon"><i class="fas fa-users"></i></span>
+                    <div>
+                        <span class="stat-number" id="liveShoppers">142</span>
+                        <span class="stat-label">Shopping Now</span>
+                    </div>
+                </div>
+                <div class="sale-stat">
+                    <span class="stat-icon"><i class="fas fa-bolt"></i></span>
+                    <div>
+                        <span class="stat-number" id="itemsSold">89</span>
+                        <span class="stat-label">Sold Today</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flash Sale Banner -->
+            <div class="flash-sale-banner">
+                <div class="flash-content">
+                    <span class="flash-badge">
+                        <i class="fas fa-bolt"></i>
+                        FLASH SALE
+                    </span>
+                    <span class="flash-text">Limited quantities available</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <div class="progress-label">65% Sold</div>
+            </div>
+        </div>
+        
+        <!-- Animated Sale Elements -->
+        <div class="sale-animation">
+            <div class="sale-tag tag-1">-50%</div>
+            <div class="sale-tag tag-2">SALE</div>
+            <div class="sale-tag tag-3">-70%</div>
+            <div class="sale-tag tag-4">HOT</div>
+        </div>
+    </header>
+
+    <!-- Sale Categories -->
+    <section class="sale-categories">
+        <div class="section-header">
+            <h2 class="section-title">Shop by <span class="highlight">Category</span></h2>
+            <p class="section-subtitle">Find amazing deals in your favorite categories</p>
+        </div>
+        
+        <div class="categories-grid">
+            <a href="#mens-sale" class="sale-category-card men">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3 class="category-name">Men's Sale</h3>
+                    <p class="category-discount">Up to 60% Off</p>
+                    <span class="category-cta">Shop Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            
+            <a href="#womens-sale" class="sale-category-card women">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3 class="category-name">Women's Sale</h3>
+                    <p class="category-discount">Up to 70% Off</p>
+                    <span class="category-cta">Shop Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            
+            <a href="#shoes-sale" class="sale-category-card shoes">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3 class="category-name">Footwear</h3>
+                    <p class="category-discount">Up to 50% Off</p>
+                    <span class="category-cta">Shop Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            
+            <a href="#accessories-sale" class="sale-category-card accessories">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3 class="category-name">Accessories</h3>
+                    <p class="category-discount">Up to 40% Off</p>
+                    <span class="category-cta">Shop Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Flash Deals Section -->
+    <section class="flash-deals" id="flash-deals">
+        <div class="section-header">
+            <div class="header-title">
+                <h2 class="section-title">
+                    <i class="fas fa-bolt"></i>
+                    <span class="highlight">Flash</span> Deals
+                </h2>
+                <div class="deal-timer">
+                    <span class="timer-label">Ends in:</span>
+                    <span class="timer" id="flashTimer">02:15:30</span>
+                </div>
+            </div>
+            <p class="section-subtitle">Limited time offers - Act fast before they're gone!</p>
+        </div>
+        
+        <div class="flash-deals-grid">
+            <!-- Flash Deal 1 -->
+            <div class="flash-deal-card">
+                <div class="deal-badge">
+                    <span class="deal-percent">-65%</span>
+                    <span class="deal-time">2H Left</span>
+                </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Pants">
+                </div>
+                <div class="deal-info">
+                    <h3 class="deal-name">Designer Pants</h3>
+                    <div class="deal-pricing">
+                        <span class="current-price">$49.99</span>
+                        <span class="original-price">$119.99</span>
+                    </div>
+                    <div class="deal-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="progress-text">85% Sold</div>
+                    </div>
+                    <button class="deal-btn" data-product="1">
+                        <i class="fas fa-bolt"></i>
+                        Grab Deal
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Flash Deal 2 -->
+            <div class="flash-deal-card">
+                <div class="deal-badge">
+                    <span class="deal-percent">-50%</span>
+                    <span class="deal-time">4H Left</span>
+                </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Evening Dress">
+                </div>
+                <div class="deal-info">
+                    <h3 class="deal-name">Evening Dress</h3>
+                    <div class="deal-pricing">
+                        <span class="current-price">$74.99</span>
+                        <span class="original-price">$149.99</span>
+                    </div>
+                    <div class="deal-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                        <div class="progress-text">72% Sold</div>
+                    </div>
+                    <button class="deal-btn" data-product="2">
+                        <i class="fas fa-bolt"></i>
+                        Grab Deal
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Flash Deal 3 -->
+            <div class="flash-deal-card">
+                <div class="deal-badge">
+                    <span class="deal-percent">-60%</span>
+                    <span class="deal-time">6H Left</span>
+                </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Urban Sneakers">
+                </div>
+                <div class="deal-info">
+                    <h3 class="deal-name">Urban Sneakers</h3>
+                    <div class="deal-pricing">
+                        <span class="current-price">$51.99</span>
+                        <span class="original-price">$129.99</span>
+                    </div>
+                    <div class="deal-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                        <div class="progress-text">90% Sold</div>
+                    </div>
+                    <button class="deal-btn" data-product="3">
+                        <i class="fas fa-bolt"></i>
+                        Grab Deal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Deals Section -->
+    <section class="best-deals" id="mens-sale">
+        <div class="section-header">
+            <h2 class="section-title">Best <span class="highlight">Deals</span> for Men</h2>
+            <p class="section-subtitle">Top discounted items in men's fashion</p>
+            <div class="sort-options">
+                <select class="sort-select">
+                    <option value="discount">Sort by: Highest Discount</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Hoodie">
+                    <div class="discount-badge">-40%</div>
+                    <button class="quick-view-btn" data-product="4">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Premium Hoodie</h3>
+                    <p class="product-description">Soft cotton blend hoodie</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$47.99</span>
+                        <span class="original-price">$79.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $32.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="4">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="4">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cargo Pants">
+                    <div class="discount-badge">-30%</div>
+                    <button class="quick-view-btn" data-product="5">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Cargo Pants</h3>
+                    <p class="product-description">Utility style pants</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$69.99</span>
+                        <span class="original-price">$99.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $30.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="5">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="5">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Classic Hoodie">
+                    <div class="discount-badge">-35%</div>
+                    <button class="quick-view-btn" data-product="6">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Classic Hoodie</h3>
+                    <p class="product-description">Classic design hoodie</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$45.49</span>
+                        <span class="original-price">$69.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $24.50</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="6">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="6">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Winter Jacket">
+                    <div class="discount-badge">-55%</div>
+                    <button class="quick-view-btn" data-product="7">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Winter Jacket</h3>
+                    <p class="product-description">Warm winter jacket</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$89.99</span>
+                        <span class="original-price">$199.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $110.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="7">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="7">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women's Sale Section -->
+    <section class="best-deals women-section" id="womens-sale">
+        <div class="section-header">
+            <h2 class="section-title">Women's <span class="highlight">Sale</span></h2>
+            <p class="section-subtitle">Amazing discounts on women's fashion</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Silk Blouse">
+                    <div class="discount-badge">-45%</div>
+                    <button class="quick-view-btn" data-product="8">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Silk Blouse</h3>
+                    <p class="product-description">Premium silk blouse</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$43.99</span>
+                        <span class="original-price">$79.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $36.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="8">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="8">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Summer Dress">
+                    <div class="discount-badge">-40%</div>
+                    <button class="quick-view-btn" data-product="9">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Summer Dress</h3>
+                    <p class="product-description">Lightweight summer dress</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$53.99</span>
+                        <span class="original-price">$89.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $36.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="9">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="9">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casual T-shirt">
+                    <div class="discount-badge">-60%</div>
+                    <button class="quick-view-btn" data-product="10">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Casual T-shirt</h3>
+                    <p class="product-description">Comfortable cotton t-shirt</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$15.99</span>
+                        <span class="original-price">$39.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $24.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="10">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="10">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="sale-product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Coat">
+                    <div class="discount-badge">-50%</div>
+                    <button class="quick-view-btn" data-product="11">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Designer Coat</h3>
+                    <p class="product-description">Winter designer coat</p>
+                    <div class="product-pricing">
+                        <span class="current-price">$99.99</span>
+                        <span class="original-price">$199.99</span>
+                    </div>
+                    <div class="product-savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Save $100.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" data-product="11">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button class="wishlist-btn" data-product="11">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sale Banner -->
+    <section class="sale-banner">
+        <div class="banner-content">
+            <h2 class="banner-title">Extra <span class="highlight">15% OFF</span></h2>
+            <p class="banner-text">Use code: <strong>MEGA15</strong> on orders above $100</p>
+            <div class="banner-countdown">
+                <span class="countdown-text">Code expires in:</span>
+                <span class="countdown-time" id="couponTimer">23:59:59</span>
+            </div>
+            <button class="banner-btn" id="copyCouponBtn">
+                <i class="fas fa-copy"></i>
+                Copy Code
+            </button>
+        </div>
+    </section>
+
+    <!-- Newsletter for Deals -->
+    <section class="deal-newsletter">
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">Never Miss a Deal!</h2>
+            <p class="newsletter-text">
+                Subscribe to get exclusive sale alerts, early access to flash deals, 
+                and members-only discounts.
+            </p>
+            
+            <form class="newsletter-form" id="dealNewsletterForm">
+                <div class="form-group">
+                    <input type="email" class="email-input" placeholder="Enter your email" required>
+                    <button type="submit" class="subscribe-btn">
+                        <i class="fas fa-bell"></i>
+                        Get Sale Alerts
+                    </button>
+                </div>
+                <p class="form-note">We'll only send you sale notifications, no spam!</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Coupon Copied Notification -->
+    <div class="coupon-notification" id="couponNotification">
+        <i class="fas fa-check-circle"></i>
+        <span>Coupon code copied to clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>STYLESHOP</h2>
+                <p>Premium Clothing Brand</p>
+            </div>
+            
+             <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="men.html">Men's Collection</a>
+                    <a href="women.html">Women's Collection</a>
+                    <a href="collections.html">New Arrivals</a>
+                    <a href="sale.html">Best Sellers</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand Partners</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 STYLESHOP. All rights reserved.</p>
+           <div class="hero-social">
+    <a href="https://github.com/alihamedaaboelnaga" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/Naga_Stack/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:alihamedaaboelnaga2019@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+<!-- CSS -->
+<style>
+.hero-social {
+    display: flex;
+    gap: 20px; /* المسافة بين الأيقونات */
+    justify-content: center; /* توسيط الأيقونات */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.hero-social a i {
+    font-size: 28px;
+    color: #0a1a3b; /* Dark Navy */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.hero-social a:hover i {
+    color: #1e90ff; /* لون عند المرور على الأيقونة */
+    transform: scale(1.2);
+    cursor: pointer;
+}
+</style>
+
+<!-- رابط Font Awesome في head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="sale.js"></script>
+</body>
+</html>

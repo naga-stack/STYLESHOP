@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLESHOP - تواصل معنا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .back-btn {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .back-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .back-btn i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-btn .btn-text {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px) translateY(-50%);
+            transition: all 0.4s;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-btn:hover .btn-text {
+            opacity: 1;
+            transform: translateX(0) translateY(-50%);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transform-style: preserve-3d;
+            animation: fadeIn 1s ease-out;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 3D Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            pointer-events: none;
+            transform-style: preserve-3d;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 30px;
+            opacity: 0.4;
+            filter: blur(25px);
+            animation: floatElement 20s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 15%;
+            right: 5%;
+            animation-delay: 0s;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 65%;
+            right: 75%;
+            animation-delay: -5s;
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(45deg, #6366f1, #3b82f6);
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 85%;
+            right: 15%;
+            animation-delay: -10s;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ec4899, #f43f5e);
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 25%;
+            right: 85%;
+            animation-delay: -7s;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #3b82f6, #6366f1);
+        }
+        
+        /* Contact Cards */
+        .contact-section {
+            padding: 8rem 0;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 5rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateZ(50px);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to left, #6366f1, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            perspective: 1000px;
+            padding: 0 20px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 3.5rem 2.5rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .contact-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-25px) rotateX(8deg) rotateY(8deg) scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 150px rgba(99, 102, 241, 0.3);
+        }
+        
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            transform: translateZ(40px);
+            position: relative;
+            transition: transform 0.6s;
+        }
+        
+        .contact-card:hover .card-icon {
+            transform: translateZ(60px) scale(1.1);
+        }
+        
+        .card-icon::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 35px;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+        
+        .card-icon i {
+            font-size: 2.8rem;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            transform: translateZ(30px);
+            font-weight: 700;
+        }
+        
+        .card-content {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            transform: translateZ(20px);
+            opacity: 0.9;
+        }
+        
+        .card-contact {
+            color: #6366f1;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s;
+            transform: translateZ(25px);
+            padding: 12px 25px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .card-contact:hover {
+            color: #8b5cf6;
+            transform: translateX(10px) translateZ(25px);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* WhatsApp Special Card */
+        .whatsapp-card {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(37, 211, 102, 0.05));
+            border: 1px solid rgba(37, 211, 102, 0.2);
+        }
+        
+        .whatsapp-card .card-icon {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+        }
+        
+        .whatsapp-card:hover {
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 150px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-card .card-contact {
+            color: #25D366;
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            animation: pulse 2s infinite;
+            transform: translateZ(30px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .social-cards {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            perspective: 1000px;
+            padding: 0 20px;
+        }
+        
+        .social-card {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .social-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-card:hover {
+            transform: translateY(-20px) scale(1.15) rotateY(15deg);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 100px rgba(99, 102, 241, 0.2);
+        }
+        
+        .social-icon {
+            font-size: 3.5rem;
+            transform: translateZ(30px);
+            transition: transform 0.6s;
+        }
+        
+        .social-card:hover .social-icon {
+            transform: translateZ(50px) scale(1.2);
+        }
+        
+        .social-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            transform: translateZ(25px);
+        }
+        
+        .social-desc {
+            color: #cbd5e1;
+            font-size: 1rem;
+            text-align: center;
+            transform: translateZ(20px);
+        }
+        
+        .social-card.github {
+            background: linear-gradient(135deg, rgba(24, 23, 23, 0.15), rgba(24, 23, 23, 0.08));
+        }
+        
+        .social-card.instagram {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(225, 48, 108, 0.08));
+        }
+        
+        .social-card.email {
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.15), rgba(66, 133, 244, 0.08));
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent);
+            z-index: 1;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .copyright {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-social a {
+            color: #cbd5e1;
+            font-size: 1.8rem;
+            transition: all 0.4s;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-social a:hover {
+            color: #6366f1;
+            transform: translateY(-10px) scale(1.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        @keyframes floatElement {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(40px, -60px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 30px) rotate(240deg) scale(0.9);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) translateZ(30px);
+                box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.08) translateZ(30px);
+                box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .contact-cards {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+                padding: 0 10px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .card-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .card-icon i {
+                font-size: 2.2rem;
+            }
+            
+            .social-card {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .social-icon {
+                font-size: 2.8rem;
+            }
+            
+            .back-button {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .back-btn {
+                width: 55px;
+                height: 55px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-cards {
+                gap: 2rem;
+            }
+            
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .social-card {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .social-cards {
+                gap: 1.5rem;
+            }
+            
+            .footer-social a {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .footer-logo {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .contact-cards {
+                padding: 0 10px;
+            }
+            
+            .social-card {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .social-icon {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* Cursor Effect */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, width 0.3s, height 0.3s;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.2);
+            border-color: #8b5cf6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    
+    <!-- Back Button -->
+    <div class="back-button">
+        <button class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-right"></i>
+            <span class="btn-text">رجوع للصفحة السابقة</span>
+        </button>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">تواصل مع ALI HAMED</h1>
+            <p class="hero-subtitle" id="typingText">
+                فريقنا متاح دائماً لمساعدتك. تواصل معنا عبر أي من الوسائل التالية 
+                للحصول على أفضل خدمة ودعم فني سريع ومميز.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Cards Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">وسائل التواصل المباشر</h2>
+            
+            <div class="contact-cards">
+                <!-- WhatsApp Card -->
+                <div class="contact-card whatsapp-card">
+                    <div class="card-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="card-title">واتساب مباشر</h3>
+                    <p class="card-content">
+                        تواصل معنا فوراً عبر واتساب للحصول على دعم سريع ومباشر.
+                        نحن متاحون على مدار الساعة للرد على استفساراتك.
+                    </p>
+                    <a href="https://wa.me/201017224990" class="card-contact" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        +20 101 722 4990
+                    </a>
+                    <div class="whatsapp-badge">
+                        <i class="fas fa-bolt"></i> رد فوري
+                    </div>
+                </div>
+                
+                <!-- Phone Card -->
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="card-title">اتصل بنا الآن</h3>
+                    <p class="card-content">
+                        تحدث مع فريق الدعم عبر الهاتف للحصول على إجابات فورية
+                        واستشارات متخصصة في عالم الموضة والتسوق.
+                    </p>
+                    <a href="tel:+201017224990" class="card-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        +20 101 722 4990
+                    </a>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3 class="card-title">راسلنا على الإيميل</h3>
+                    <p class="card-content">
+                        أرسل لنا رسالة مفصلة وسنرد عليك في أسرع وقت ممكن
+                        مع حلول مخصصة لجميع استفساراتك وطلباتك.
+                    </p>
+                    <a href="mailto:alihamedaaboelnaga2019@gmail.com" class="card-contact">
+                        <i class="fas fa-envelope-open-text"></i>
+                        alihamedaaboelnaga2019@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="section-title">تابعنا على وسائل التواصل</h2>
+            
+            <div class="social-cards">
+                <!-- GitHub -->
+                <a href="https://github.com/alihamedaaboelnaga" class="social-card github" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <span class="social-name">GitHub</span>
+                    <span class="social-desc">Ali Hamed Aboelnaga</span>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/Naga_Stack/" class="social-card instagram" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span class="social-name">Instagram</span>
+                    <span class="social-desc">@Naga_Stack</span>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:alihamedaaboelnaga2019@gmail.com" class="social-card email">
+                    <div class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span class="social-name">البريد الإلكتروني</span>
+                    <span class="social-desc">راسلنا مباشرة</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">STYLESHOP</div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/alihamedaaboelnaga" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/Naga_Stack/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:alihamedaaboelnaga2019@gmail.com" title="البريد الإلكتروني">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/201017224990" target="_blank" title="واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2024 STYLESHOP. جميع الحقوق محفوظة.<br>
+                تم التصميم والبرمجة بـ <i class="fas fa-heart" style="color: #ec4899;"></i> بواسطة علي حامد أبو النجا
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Back Button Functionality
+        const backBtn = document.getElementById('backBtn');
+        
+        backBtn.addEventListener('click', () => {
+            if (document.referrer && document.referrer.includes(window.location.host)) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html'; // أو الصفحة الرئيسية
+            }
+        });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Hover effect for cursor
+        document.querySelectorAll('a, button, .contact-card, .social-card').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
+        });
+        
+        // Parallax effect on scroll
+        document.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            
+            document.querySelectorAll('.floating-element').forEach((el, index) => {
+                const speed = (index + 1) * 0.1;
+                el.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.05}deg)`;
+            });
+        });
+        
+        // 3D Tilt effect for cards
+        document.querySelectorAll('.contact-card, .social-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 8;
+                const rotateX = ((centerY - y) / centerY) * 8;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-25px) scale(1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+        
+        // Typewriter effect
+        const typingText = document.getElementById('typingText');
+        const originalText = typingText.textContent;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeEffect() {
+            const currentText = originalText.substring(0, charIndex);
+            typingText.textContent = currentText;
+            
+            if (!isDeleting && charIndex < originalText.length) {
+                charIndex++;
+                setTimeout(typeEffect, 50);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeEffect, 30);
+            } else {
+                isDeleting = !isDeleting;
+                setTimeout(typeEffect, 2000);
+            }
+        }
+        
+        // Start typing effect
+        window.addEventListener('load', () => {
+            typingText.textContent = '';
+            setTimeout(typeEffect, 1000);
+        });
+        
+        // Add hover sound effect
+        document.querySelectorAll('.contact-card, .social-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Create subtle hover effect
+                const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                let interval = null;
+                const originalTitle = card.querySelector('.card-title')?.textContent || 
+                                    card.querySelector('.social-name')?.textContent;
+                
+                if (originalTitle) {
+                    let iteration = 0;
+                    
+                    clearInterval(interval);
+                    
+                    interval = setInterval(() => {
+                        const element = card.querySelector('.card-title') || card.querySelector('.social-name');
+                        element.textContent = originalTitle
+                            .split("")
+                            .map((letter, index) => {
+                                if (index < iteration) {
+                                    return originalTitle[index];
+                                }
+                                
+                                return letters[Math.floor(Math.random() * 26)];
+                            })
+                            .join("");
+                        
+                        if (iteration >= originalTitle.length) {
+                            clearInterval(interval);
+                        }
+                        
+                        iteration += 1/3;
+                    }, 30);
+                }
+            });
+        });
+        
+        // Add particles effect
+        function createParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.right = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '1';
+            document.body.appendChild(particlesContainer);
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 3 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = `rgba(${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 255, ${Math.random() * 0.5 + 0.2})`;
+                particle.style.borderRadius = '50%';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.right = Math.random() * 100 + 'vw';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Animate particle
+                animateParticle(particle);
+            }
+        }
+        
+        function animateParticle(particle) {
+            let x = parseFloat(particle.style.right);
+            let y = parseFloat(particle.style.top);
+            
+            function move() {
+                x += Math.random() * 0.5 - 0.25;
+                y += Math.random() * 0.5 - 0.25;
+                
+                // Boundary check
+                if (x < 0) x = 0;
+                if (x > 100) x = 100;
+                if (y < 0) y = 0;
+                if (y > 100) y = 100;
+                
+                particle.style.right = x + 'vw';
+                particle.style.top = y + 'vh';
+                
+                requestAnimationFrame(move);
+            }
+            
+            move();
+        }
+        
+        // Initialize particles
+        window.addEventListener('load', createParticles);
+        
+        // Add scroll animation for cards
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `slideIn 0.8s ease forwards`;
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.contact-card, .social-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
